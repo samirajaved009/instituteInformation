@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url(./teachers.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .parent {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .main {
+            width: 30%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: rgb(37, 7, 74);
+            font-size: larger;
+            border-radius: 30px;
+            border: 5px solid black;
+            color: aliceblue;
+            margin-bottom: 10%;
+
+        }
+
+        button {
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .heading {
+            text-align: center;
+            color: chartreuse;
+            margin-top: 5px;
+            font-size: 70px;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h1 class="heading">Add Teacher's Data</h1>
+        <div class="parent">
+            <div class="main">
+                <label for="name">Name</label> </br>
+                <input placeholder="Enter name" id="name" required> </br></br>
+                <label>Subject</label> </br>
+                <input placeholder="Enter subject" id="subject" required> </br></br>
+                <label>Salary</label> </br>
+                <input placeholder="Enter salary amount" id="salary" required></br></br>
+                <button type="submit" value="Submit" id="btn">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </form>
+    <script>
+        const name = document.querySelector('#name');
+        const subject = document.querySelector('#subject');
+        const salary = document.querySelector('#salary');
+        const button = document.querySelector('#btn');
+
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const data = {
+                id: Math.floor(Math.random() * 1000 + 1),
+                namr: name.value,
+                subject: subject.value,
+                salary: salary.value,
+                noOfStudents: [],
+            }
+            console.log(data);
+
+            const teachersData = JSON.parse(localStorage.getItem('teacherData'));
+            teachersData.push(data);
+            localStorage.setItem('teacherData', JSON.stringify(teachersData));
+
+
+            name.value = '';
+            subject.value = '';
+            salary.value = '';
+
+        });
+
+    </script>
+</body>
+
+</html>

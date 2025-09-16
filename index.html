@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="1-teacherDataInput.html" style="color: rgb(21, 22, 13);">AddTeacher</a>
+    <a href="1-studentDataInput.html" style="color: rgb(21, 22, 13);">AddStudent</a>
+    <script>
+       const teacherData = [
+        // {
+        //     id : 1,
+        //     name : 'Dawlance',
+        //     subject : 'English',
+        //     salary : 30000,
+        // },
+        //   {
+        //     id : 2,
+        //     name : 'Uniliver',
+        //     subject : 'Maths',
+        //     salary : 40000,
+        // },
+        //   {
+        //     id : 3,
+        //     name : 'Nestle',
+        //     subject : 'Computer',
+        //     salary : 50000,
+        // }
+       ];
+
+       const studentData = [
+        // {
+        //     id : 1,
+        //     name : 'abc',
+            
+        // },
+        //  {
+        //     id : 2,
+        //     name : 'efg',
+            
+        // },
+        //  {
+        //     id : 3,
+        //     name : 'xyz',
+            
+        // }
+       ];
+
+       const initialData = ()=>{
+         const isTeacherDataExist = localStorage.getItem('teacherData');
+         if(! isTeacherDataExist){
+            localStorage.setItem('teacherData','[]');
+         }
+
+          const isStudentDataExist = localStorage.getItem('studentData');
+         if(! isStudentDataExist){
+            localStorage.setItem('studentData','[]');
+         }
+       }
+       initialData();
+
+    </script>
+</body>
+</html>
